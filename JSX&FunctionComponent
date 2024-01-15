@@ -1,0 +1,115 @@
+import React from "react";
+import ReactDOM from "react-dom";
+
+
+// const heading = React.createElement("h1",{id:"heading"},"hello and namaste , react");
+
+ //what if mko nested components bnane ho div k andr div n all yto sirf h1 ka hi h
+ 
+// const parent = React.createElement("div",{id:"parent"},
+
+// [React.createElement("div",{id:"child"},
+
+// [React.createElement("h1",{},"hey i am h1 tage"),React.createElement("h3",{},"hey i am h3 tage")]),React.createElement("div",{id:"child2"},
+
+// [React.createElement("h1",{},"hey i am h1 tage"),React.createElement("h3",{},"hey i am h3 tage")])]);
+//above code is so complex for nested div and siblings . to make it simple jsx is used
+
+
+
+
+//JSX 
+// const heading = (
+// <div>
+//     <h1>parent div</h1>
+//     <a href="https://react.dev/">click me</a>/
+//     <div>
+//         <h1>child div</h1>
+//         <img src="https://www.clothhouse.com/cdn/shop/collections/Cloth-house-london-irish-linen-fabric-online_large.jpg?v=1694086616" alt="image with jsx"/>
+//     </div>
+// </div>
+// )
+const FunctionHeading = () => {
+    return <h1>hello function component 1</h1>   //1 way of function component
+}
+const FunctionHeading2 = () => <h1>hello function component 2</h1> // when have 1 line statement
+
+// const FunctionHeading3 = () => (
+//     return <h1>hello function component 3</h1>  //wrong way when return bracket mustbe {} <=this
+// )
+const FunctionHeading4 = () => (
+     <h1>hello function component 4</h1>      //2 way of function component
+)
+
+const FunctionHeading5 = () => (
+    <div id="container">
+    <h1 className="heading">hello function component 5</h1>      //2 way of function component when put nested element
+    </div>
+)
+
+const FunctionHeading6 = function () {
+    return (
+    <h1>component without arrow function</h1>   //have to write return in this case, while not using arrow function.prefer to use arrow function
+)};
+
+// const root = ReactDOM.createRoot(document.getElementById("root"));
+// // console.log(parent);
+// root.render(<FunctionHeading/>);
+
+//cases of component and jsx(return react element)
+//1.component inside component 
+// const FirstComponent = () => (
+//     <h1>first component</h1>
+// )
+
+// const SecondComponent = () => (
+//     <div>
+//     <FirstComponent/>
+//     <h1>second component</h1>
+//     </div>
+// )
+
+// const root = ReactDOM.createRoot(document.getElementById("root"));
+// // console.log(parent);
+// root.render(<SecondComponent/>);
+
+//case 2 ..write element(JSX) inside component
+
+// const jsxelement = <h2>jsx elemnt</h2>
+
+// const FunctionComponent7 = () => (
+//     <div>
+//     {jsxelement}
+//     <h1>function compoent 7</h1>    
+    //    <h1>{jsxelement}  </h1>  
+//     </div>
+// )
+
+
+
+// const root = ReactDOM.createRoot(document.getElementById("root"));
+// // console.log(parent);
+// root.render(<FunctionComponent7/>);
+
+//case 3 ..write component inside jsx
+
+
+
+const FunctionComponent7 = () => (
+    <div>
+    <h1>function compoent 7 after elemnt</h1>         
+    </div>
+)
+const jsxelement = (
+<div>
+    <h2>jsx elemnt first</h2>
+    <FunctionComponent7/>
+</div>
+)
+
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+// console.log(parent);
+root.render(jsxelement);
+
+//we can do elemnt inside other element too
