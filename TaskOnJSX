@@ -1,0 +1,40 @@
+import React from "react";
+import ReactDOM from "react-dom";
+
+
+//using create reactelemement
+const headerElement = React.createElement("div",{class : "title"},[
+    React.createElement("h1",{},"heading 1"),
+    React.createElement("h1",{},"heading 2"),
+    React.createElement("h1",{},"heading 3"),
+])
+
+//using jsx
+const headerElementJSX = (
+    <div className="title">
+        <h1>heading1</h1>
+        <h1>heading2</h1>
+        <h1>heading3</h1>
+    </div>
+);
+
+//Create a functional component of the same with JSX
+const HeaderElementFunction = () => {
+    const heading2="heading2";
+    const style={
+        color : "red",
+        background : "yellow"
+    }
+    return (
+    <div className="title">
+        <h1 className="heading1" style={style}>heading1</h1>
+        <h1 className={heading2}>heading2</h1>
+        <h1>heading3</h1>
+    </div>
+    )
+};
+
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+root.render(<HeaderElementFunction />);
