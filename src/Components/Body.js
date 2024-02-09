@@ -1,10 +1,14 @@
-import { useState ,useEffect} from "react";
+import { useState ,useEffect, useContext} from "react";
 import {Link} from "react-router-dom";
 import RestaurantCard,{withRestaurantPromoted} from "./RestaurantCard";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 // import resList from "../utils/mockData";
 
 const Body = () => {
+    const data=useContext(UserContext);
+    console.log(data);
+    const {loggedIn,setUserName}= data;
     const [RestaurantList,setRestaurantList] = useState([]);
 
     const [filterRestaurant,setFilterRestaurant]=useState([]);
@@ -55,6 +59,13 @@ async function getData(){
                 console.log(filteredSearchList);
                 setFilterRestaurant(filteredSearchList);
                 }}>Search</button>
+
+                
+                <input type="text" className="input-text" value={loggedIn}
+                onChange={(e)=> {
+                    setUserName(e.target.value);
+                }}/>
+                <label>Username</label>
             </div>
             <div className="res-container">
                { filterRestaurant.map((restau) => 
